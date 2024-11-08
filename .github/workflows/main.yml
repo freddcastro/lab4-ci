@@ -13,7 +13,7 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: "3.11"
-      - name: Install pipenv
+      - name: Install pipenv 
         run: |
           python -m pip install --upgrade pipenv wheel
       - name: Install dependencies
@@ -21,7 +21,7 @@ jobs:
           pipenv install --deploy --dev
       - name: Run test suite
         run: |
-          pipenv run pytest
+          pipenv run pytest --cov=app
   format:
     runs-on: ubuntu-latest
     timeout-minutes: 10
