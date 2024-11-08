@@ -30,7 +30,6 @@ jobs:
           pipenv run pytest --cov=app
   format:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
     steps:
       - name: Run black formatter
         uses: rickstaa/action-black@v1.3.3
@@ -39,7 +38,7 @@ jobs:
     steps:
       - name: Build coverage file
         run: |
-          pytest --cache-clear --cov=app test/ > pytest-coverage.txt
+          pipenv run pytest --cache-clear --cov=app test/ > pytest-coverage.txt
       - name: Pytest Coverage Commentator
         uses: coroo/pytest-coverage-commentator@v1.0.2
             
