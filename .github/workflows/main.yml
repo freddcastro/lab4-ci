@@ -37,6 +37,9 @@ jobs:
   comentator:
     runs-on: ubuntu-latest
     steps:
+      - name: Build coverage file
+        run: |
+          pytest --cache-clear --cov=app test/ > pytest-coverage.txt
       - name: Pytest Coverage Commentator
         uses: coroo/pytest-coverage-commentator@v1.0.2
             
